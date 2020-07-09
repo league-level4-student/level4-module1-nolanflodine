@@ -52,5 +52,6 @@ public class _00_Horoscope{
 	public static void main(String[] args) {
 		_00_Horoscope h = new _00_Horoscope();
 		h.display();
+		
 	}
 }
