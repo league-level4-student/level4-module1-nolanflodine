@@ -19,7 +19,7 @@ import javax.swing.Timer;
 // Go through the methods and complete the steps in this class
 // and the Snake class
 
-public class _00_SnakeGame extends Snake implements ActionListener, KeyListener {
+public class _00_SnakeGame implements ActionListener, KeyListener {
 	public static final Color BORDER_COLOR = Color.WHITE;
 	public static final Color BACKGROUND_COLOR = Color.BLACK;
 	public static final Color FOOD_COLOR = Color.RED;
@@ -146,7 +146,7 @@ public class _00_SnakeGame extends Snake implements ActionListener, KeyListener 
 		//2. set the foodLocation variable equal to the Location object you just created.
 		//   use the snake's isLocationOnSnake method to make sure you don't put the food on the snake
 		for(int i = 0; i<9; i++) {
-		if(!isLocationOnSnake(l)) {
+		if(!snake.isLocationOnSnake(l)) {
 		foodLocation = l;
 		}
 		else {
@@ -170,7 +170,7 @@ public class _00_SnakeGame extends Snake implements ActionListener, KeyListener 
 			Location l = new Location(WIDTH/2, HEIGHT/2); 
 			snake.reset(l);
 			setFoodLocation();
-			timer.restart(); //Says to start but makes more sense to restart (Might have to change later)
+			timer.restart(); //SAYS TO START, BUT MAKES MORE SENSE TO RESTART (MIGHT HAVE TO CHANGE LATER)
 		}
 		
 	}
@@ -186,13 +186,13 @@ public class _00_SnakeGame extends Snake implements ActionListener, KeyListener 
 		snake.update();
 		//2. if the snake is colliding with its own body 
 		//   or if the snake is out of bounds, call gameOver
-		if(isHeadCollidingWithBody()||isOutOfBounds()) {
+		if(snake.isHeadCollidingWithBody()||snake.isOutOfBounds()) {
 			gameOver();
 		}
 		//3. if the location of the head is equal to the location of the food,
 		// 	 feed the snake and set the food location
-		if(getHeadLocation()==foodLocation) {
-			feed();
+		if(snake.getHeadLocation()==foodLocation) {
+			snake.feed();
 			setFoodLocation();
 		}
 		//4. call panel.repaint();

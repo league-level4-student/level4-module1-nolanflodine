@@ -7,7 +7,7 @@ public class _00_Horoscope{
 	//    all 12 zodiac signs.
 	Zodiac zodiac;
 	// 2. Write a method that takes in a Zodiac enum object and uses a JOPtionPane to display
-	//    a different horoscope based on the Zodiac's state.
+	//    a different horoscope based on the Zodiac's state. //I THINK IT MEANS TO TO A JOPTIONPANE TO INPUT A ZODIAC SIGN AND THEN DO THE PREDICTION (HOROSCOPE) THING BASED ON THAT SIGN
 	void display() {
 		switch (zodiac) {
 		case ARIES:
