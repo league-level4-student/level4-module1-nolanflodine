@@ -49,7 +49,7 @@ public class _00_Horoscope{
 			JOptionPane.showMessageDialog(null, "Don't be surprised if unexpected actions from others give your heart a jolt today.");
 			break;	
 		default:
-			System.out.println("error");
+			System.out.println("error"); //default not working
 			break;
 		}
 	}
