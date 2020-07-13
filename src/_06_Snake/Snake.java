@@ -132,7 +132,7 @@ public class Snake {
 	public boolean isLocationOnSnake(Location loc) {
 		// 1. complete the method so it returns true if the passed in
 		// location is located on the snake
-		#
+		
 		return false;
 	}
 
