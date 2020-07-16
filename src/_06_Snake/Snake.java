@@ -39,23 +39,23 @@ public class Snake {
 		Location xy = null;
 		switch(currentDirection) {
 		case UP:
-		     xy = new Location(getHeadLocation().getX(),getHeadLocation().getY()-Snake.BODY_SIZE);
+		     xy = new Location(getHeadLocation().getX(),getHeadLocation().getY()-1);
 			break;
 		case DOWN:
-			 xy = new Location(getHeadLocation().getX(),getHeadLocation().getY()+Snake.BODY_SIZE);
+			 xy = new Location(getHeadLocation().getX(),getHeadLocation().getY()+1);
 			break;
 		case LEFT:
-			 xy = new Location(getHeadLocation().getX()-Snake.BODY_SIZE,getHeadLocation().getY());
+			 xy = new Location(getHeadLocation().getX()-1,getHeadLocation().getY());
 			break;
 		case RIGHT:
-			 xy = new Location(getHeadLocation().getX()+Snake.BODY_SIZE,getHeadLocation().getY());
+			 xy = new Location(getHeadLocation().getX()+1,getHeadLocation().getY());
 			break;
 		}
 		// 2. Iterate through the SnakeSegments in reverse order
 		// 2a. Update each snake segment to the location of the segment
 		// in front of it.
-		for (int i = snake.size(); i < 0; i--) {
-			snake.get(i).setLocation(snake.get(i+1).getLocation()); //MIGHT HAVE TO DO I-1 INSTEAD OF I+1
+		for (int i = snake.size()-1; i > 0; i--) {
+			snake.get(i).setLocation(snake.get(i-1).getLocation()); //MIGHT HAVE TO DO I-1 INSTEAD OF I+1
 		}
 		// 3. set the location of the head to the new location calculated in step 1
 		head.setLocation(xy);
@@ -117,7 +117,7 @@ public class Snake {
 		// 1. complete the method so it returns true if the head of the snake is outside
 		// of the window
 		// and false otherwise
-		if(getHeadLocation().getX()>15*50||getHeadLocation().getY()>12*50||getHeadLocation().getX()<0||getHeadLocation().getY()<0) {
+		if(getHeadLocation().getX()>15||getHeadLocation().getY()>12||getHeadLocation().getX()<0||getHeadLocation().getY()<0) {
 			return true;
 		}
 		return false;
@@ -132,7 +132,11 @@ public class Snake {
 	public boolean isLocationOnSnake(Location loc) {
 		// 1. complete the method so it returns true if the passed in
 		// location is located on the snake
-		
+		for (int i = 1; i < snake.size(); i++) {
+			if(snake.get(i).getLocation().equals(loc)) {
+				return true;
+			}
+		}
 		return false;
 	}
 
